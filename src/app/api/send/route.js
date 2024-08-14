@@ -1,28 +1,41 @@
+// src/app/api/send/route.js
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
+// Mock function to simulate sending an email
+const mockSendEmail = ({ from, to, subject, text }) => {
+  console.log("Mock sending email:");
+  console.log("From:", from);
+  console.log("To:", to);
+  console.log("Subject:", subject);
+  console.log("Text:", text);
 
-export async function POST(req, res) {
-  const { email, subject, message } = await req.json();
-  console.log(email, subject, message);
+  // Simulate a successful response
+  return Promise.resolve({
+    success: true,
+    message: "Email sent successfully",
+  });
+};
+
+// Handle POST request
+export async function POST(req) {
   try {
-    const data = await resend.emails.send({
-      from: fromEmail,
+    // Parse the request body
+    const { email, subject, message } = await req.json();
+    console.log(email, subject, message);
+
+    // Mock sending email
+    const data = await mockSendEmail({
+      from: "mock@example.com",
       to: ["rohailm288@gmail.com", email],
       subject: subject,
-      react: (
-        <>
-          <h1>{subject}</h1>
-          <p>Thank you for contacting us!</p>
-          <p>New message submitted:</p>
-          <p>{message}</p>
-        </>
-      ),
+      text: `Subject: ${subject}\n\nThank you for contacting us!\n\nNew message submitted:\n${message}`,
     });
+
+    // Return the mock response
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error });
+    // Handle errors and return a JSON response
+    console.error("Error:", error);
+    return NextResponse.json({ error: error.message });
   }
 }

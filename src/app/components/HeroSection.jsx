@@ -5,9 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-
 const HeroSection = () => {
-  
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -21,11 +19,9 @@ const HeroSection = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-yellow-600 to-red-800 from-primary-400 to-secondary-600">
               Hello, I&apos;m {"Muhammad Rohail "}
             </span>
-            <br></br>
+            <br />
             <TypeAnimation
               sequence={[
-                // "Judy",
-                // 1000,
                 "Web Developer",
                 1000,
                 "Mobile Developer",
@@ -39,17 +35,20 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-          I'm a passionate web developer specializing in React, Next.js, HTML, CSS, Bootstrap, and Tailwind CSS. I excel at building responsive, dynamic websites and focus on clean, maintainable code. Eager to learn and adapt, I thrive in innovative, problem-solving environments.
+            I&apos;m a passionate web developer specializing in React, Next.js,
+            HTML, CSS, Bootstrap, and Tailwind CSS. I excel at building
+            responsive, dynamic websites and focus on clean, maintainable code.
+            Eager to learn and adapt, I thrive in innovative, problem-solving
+            environments.
           </p>
           <div>
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-r from-green-200 via-green-300 to-green-400 from-primary-300 to-secondary-500 hover:bg-slate-500 text-white  "
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-r from-green-200 via-green-300 to-green-400 from-primary-300 to-secondary-500 hover:bg-slate-500 text-white"
             >
               <span className="block bg-[#232323] hover:bg-slate-500 rounded-full px-3 py-1">
-              Hire Me
+                Hire Me
               </span>
-             
             </Link>
             <Link
               href="/#contact"
